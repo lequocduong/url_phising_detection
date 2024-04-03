@@ -1,0 +1,58 @@
+Input: 
+- Dataset containing the urls and its classification
+- 
+Taskes:
+- Data Cleaning - url Clearning and Tokenisation 
+- Data visualization
+- Data modelling and its justification
+- Implement of ensemble of "stacking" including boosting
+
+URL-Based Features
+Domain-Based Features
+Page-Based Features
+Content-Based Features
+
+vd: Sophisticated Framework for the Accurate Detection of Phising Websites 
+http://web.de/magazine/digital/sicher-im-netz/...
+--> tokenization 
+--> Cleaning data
+
+Output:
+- Phising detection 
+- Implement the method stacking + boosting 
+- Text usage data
+- If needing, using 
+
+Ref: 
+A.Newaz et al, Sophisticated Framework for the Accurate Detection of Phising Websites, 2024 
+https://github.com/taruntiwarihp/Projects_DS/blob/master/Phishing%20Site%20URLs%20Prediction/Phishing%20Site%20URLs%20.ipynb
+https://towardsdatascience.com/phishing-domain-detection-with-ml-5be9c99293e5
+https://www.kaggle.com/code/taruntiwarihp/phishing-sites-detector-complete-info/notebook
+
+Note:
+LogisticRegression 
+Logistic Regression is a Machine Learning classification algorithm that is used to predict the probability of a categorical dependent variable. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). In other words, the logistic regression model predicts P(Y=1) as a function of X.
+MultinomialNB
+Applying Multinomial Naive Bayes to NLP Problems. Naive Bayes Classifier Algorithm is a family of probabilistic algorithms based on applying Bayes' theorem with the “naive” assumption of conditional independence between every pair of a feature.fa
+CountVectorizer
+CountVectorizer is used to transform a corpora of text to a vector of term / token counts.
+CountVectorizer is a class in scikit-learn that transforms a collection of text documents into a numerical matrix of word or token counts
+
+OLD Codes:
+--- For Text Tokenization
+print('Getting words stemmed ...')
+t0= time.perf_counter()
+data['text_stemmed'] = data['text_tokenized'].map(lambda l: [stemmer.stem(word) for word in l])
+t1= time.perf_counter() - t0
+print('Time taken',t1 ,'sec')
+
+# Saving model
+title = model + '.sav'
+save_model(lr,save_path,title)
+
+# Loading model
+model = 'Logistic Regression'
+title = model + '.sav'
+loaded_model = load_model(save_path,title)
+acc_test,f1_score_test,recall_score_test,precision_score_test = model_evaluation_score(lr, trainX, trainY, testX, testY)
+store_results(model,acc_test,f1_score_test,recall_score_test,precision_score_test)
