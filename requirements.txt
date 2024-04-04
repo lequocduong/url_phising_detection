@@ -2,4 +2,7 @@ numpy == 1.23.5
 pandas == 1.5.3
 matplotlib == 3.7.1
 python-math
-pip install --user -U nltk
+--user -U nltk
+tld
+Wordcloud
+tldextract

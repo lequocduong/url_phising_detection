@@ -1,7 +1,7 @@
 Input: 
-- Dataset containing the urls and its classification
-- 
-Taskes:
+- Dataset containing the domains(urls) and its classification
+
+Requirments:
 - Data Cleaning - url Clearning and Tokenisation 
 - Data visualization
 - Data modelling and its justification
@@ -25,15 +25,25 @@ Output:
 
 Ref: 
 A.Newaz et al, Sophisticated Framework for the Accurate Detection of Phising Websites, 2024 
+Method 1:
 https://github.com/taruntiwarihp/Projects_DS/blob/master/Phishing%20Site%20URLs%20Prediction/Phishing%20Site%20URLs%20.ipynb
 https://towardsdatascience.com/phishing-domain-detection-with-ml-5be9c99293e5
 https://www.kaggle.com/code/taruntiwarihp/phishing-sites-detector-complete-info/notebook
+New approach:
+https://www.kaggle.com/code/thisishusseinali/malicious-url-detection/comments
+
+Method 2:
+https://www.kaggle.com/search?q=urls+phishing+detection
+https://www.kaggle.com/code/sujithmandala/phishing-domain-detection-bert-log-reg-96-ac
+https://www.kaggle.com/code/unstructuredrahul/deep-learning-pytorch-binary-classification
+https://www.kaggle.com/code/hamzamanssor/detection-malicious-url-using-ml-models
+https://www.kaggle.com/code/thisishusseinali/malicious-url-detection
 
 Note:
 LogisticRegression 
 Logistic Regression is a Machine Learning classification algorithm that is used to predict the probability of a categorical dependent variable. In logistic regression, the dependent variable is a binary variable that contains data coded as 1 (yes, success, etc.) or 0 (no, failure, etc.). In other words, the logistic regression model predicts P(Y=1) as a function of X.
 MultinomialNB
-Applying Multinomial Naive Bayes to NLP Problems. Naive Bayes Classifier Algorithm is a family of probabilistic algorithms based on applying Bayes' theorem with the “naive” assumption of conditional independence between every pair of a feature.
+Applying Multinomial Naive Bayes to NLP Problems. Naive Bayes Classifier Algorithm is a family of probabilistic algorithms based on applying Bayes' theorem with the “naive” assumption of conditional independence between every pair of a feature.fa
 CountVectorizer
 CountVectorizer is used to transform a corpora of text to a vector of term / token counts.
 CountVectorizer is a class in scikit-learn that transforms a collection of text documents into a numerical matrix of word or token counts
@@ -56,3 +66,4 @@ title = model + '.sav'
 loaded_model = load_model(save_path,title)
 acc_test,f1_score_test,recall_score_test,precision_score_test = model_evaluation_score(lr, trainX, trainY, testX, testY)
 store_results(model,acc_test,f1_score_test,recall_score_test,precision_score_test)
+

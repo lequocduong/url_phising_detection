@@ -1,7 +1,7 @@
 Input: 
-- Dataset containing the urls and its classification
-- 
-Taskes:
+- Dataset containing the domains(urls) and its classification
+
+Requirments:
 - Data Cleaning - url Clearning and Tokenisation 
 - Data visualization
 - Data modelling and its justification
@@ -25,9 +25,19 @@ Output:
 
 Ref: 
 A.Newaz et al, Sophisticated Framework for the Accurate Detection of Phising Websites, 2024 
+Method 1:
 https://github.com/taruntiwarihp/Projects_DS/blob/master/Phishing%20Site%20URLs%20Prediction/Phishing%20Site%20URLs%20.ipynb
 https://towardsdatascience.com/phishing-domain-detection-with-ml-5be9c99293e5
 https://www.kaggle.com/code/taruntiwarihp/phishing-sites-detector-complete-info/notebook
+New approach:
+https://www.kaggle.com/code/thisishusseinali/malicious-url-detection/comments
+
+Method 2:
+https://www.kaggle.com/search?q=urls+phishing+detection
+https://www.kaggle.com/code/sujithmandala/phishing-domain-detection-bert-log-reg-96-ac
+https://www.kaggle.com/code/unstructuredrahul/deep-learning-pytorch-binary-classification
+https://www.kaggle.com/code/hamzamanssor/detection-malicious-url-using-ml-models
+https://www.kaggle.com/code/thisishusseinali/malicious-url-detection
 
 Note:
 LogisticRegression 
@@ -56,3 +66,18 @@ title = model + '.sav'
 loaded_model = load_model(save_path,title)
 acc_test,f1_score_test,recall_score_test,precision_score_test = model_evaluation_score(lr, trainX, trainY, testX, testY)
 store_results(model,acc_test,f1_score_test,recall_score_test,precision_score_test)
+
+data['domain_len'] = data['domain'].apply(lambda x: get_url_length(str(x)))
+data['pri_domain'] = data['domain'].apply(lambda i: extract_pri_domain(i))
+data['https'] = data['domain'].apply(lambda i: httpSecure(i))
+data['letters_count']        = data['domain'].apply(lambda x: count_letters(x))
+data['digits_count']         = data['domain'].apply(lambda x: count_digits(x))
+data['special_chars_count']  = data['domain'].apply(lambda x: count_special_chars(x))
+data['Shortining_Service']  = data['domain'].apply(lambda x: has_shortening_service(x))
+data['abnormal_domain']  = data['domain'].apply(lambda x: abnormal_url(x))
+data['have_ip']  = data['domain'].apply(lambda x: have_ip_address(x))
+data['domain_region'] = data['pri_domain'].apply(lambda x: get_url_region(str(x)))
+data['root_domain'] = data['pri_domain'].apply(lambda x: extract_root_domain(str(x)))
+data['root_domain'] = data['root_domain'].apply(hash_encode)
+data['domain_region'] = datSuggestions for supervising the model performance over time
+a['domain_region'].apply(hash_encode)
